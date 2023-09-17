@@ -3,11 +3,16 @@ import "./main.css";
 
 import { useState } from "react";
 
+import { useNavigate } from "react-router";
+
 function Search(props) {
+  const navigator = useNavigate();
+
   const [profileName, setProfileName] = useState("");
   const handleSubmit = () => {
     props.callback(profileName);
     setProfileName("");
+    navigator("/dashboard");
   };
   return (
     <div className="search-container">

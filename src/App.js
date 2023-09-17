@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 
 // app components
 import Search from "./components/search";
+import Dashboard from "./components/dashboard";
 
 // api
 import axios from "axios";
@@ -12,31 +13,38 @@ import axios from "axios";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
+  // states
   const [data, setData] = useState();
   const [profileName, setProfileName] = useState("");
   const searchCallback = (name) => {
-    setProfileName(name);
+    setProfileName(name); // get name from search bar at homepage
   };
 
+  // api from name set data state
   useEffect(() => {
-    axios.get(`https://api.github.com/users/${profileName}/repos`).then(
-      (response) => {
-        setData(response.data);
-      },
-      (error) => {
-        console.log(error);
-        setData();
-      }
-    );
+    if (profileName) {
+      axios.get(`https://api.github.com/users/${profileName}/repos`).then(
+        (response) => {
+          setData(response.data);
+        },
+        (error) => {
+          console.log(error);
+          setData();
+        }
+      );
+    }
   }, [profileName]);
   useEffect(() => {
     console.log(data);
   }, [data]);
+
+  // JSX
   return (
     <Router>
       <div className="app">
         <Routes>
           <Route path="/" element={<Search callback={searchCallback} />} />
+          <Route path="/dashboard" element={<Dashboard data={data} />} />
         </Routes>
       </div>
     </Router>
