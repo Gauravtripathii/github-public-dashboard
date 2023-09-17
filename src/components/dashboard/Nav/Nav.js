@@ -27,6 +27,9 @@ function Nav({avatar}) {
   };
   return (
     <div className="nav" style={style.nav}>
+        <div className="profile">
+            <img src={avatar} alt="gitHub Avatar" />
+        </div>
       <NavLink to="/" style={style.navSpan} className="dashboard-item">
         <i className="material-symbols-outlined">home</i>
         <span className="text">Home</span>
