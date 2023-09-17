@@ -3,10 +3,10 @@ import "./main.css";
 
 import { useState } from "react";
 
-function Search() {
+function Search(props) {
   const [profileName, setProfileName] = useState("");
   const handleSubmit = () => {
-    console.log(profileName);
+    props.callback(profileName);
     setProfileName("");
   };
   return (
