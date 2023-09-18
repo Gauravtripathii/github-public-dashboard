@@ -17,7 +17,13 @@ function Dashboard({ data, handleColorChange }) {
       <div className="dashboard-main">
         {data
           ? data.map((repo, index) => (
-              <div className="card" key={index}>{repo.full_name}</div>
+              <div className="card" key={index}>
+                <div className="profile-name">{repo.owner.login}/</div>
+                <div className="repo-name">{repo.name}</div>
+                <footer>
+                  <a href={repo.html_url} target="_blank">GitHub</a>
+                </footer>
+              </div>
             ))
           : "no data here"}
       </div>

@@ -47,7 +47,7 @@ function Nav({ avatar, handleColorChange }) {
       navSpanRef.current.style.borderColor = "var(--color-light)";
       handleColorChange(themeBtnClick)
     }
-  }, [themeBtnClick]);
+  }, [themeBtnClick, handleColorChange]);
   return (
     <div className="nav" style={style.nav} ref={navRef}>
       <div className="profile" ref={navSpanRef}>

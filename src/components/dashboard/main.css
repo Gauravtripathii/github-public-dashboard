@@ -6,3 +6,27 @@
   padding: 20px;
   gap: 20px;
 }
+
+.dashboard-main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 15px;
+  overflow-y: scroll;
+}
+.dashboard-main .card {
+  width: 30%;
+  height: fit-content;
+  border: 1px solid;
+  padding: 10px;
+  border-radius: 15px;
+}
+.card .profile-name {
+  font-family: var(--fira-sans);
+}
+.card .repo-name {
+  font-family: var(--exo-2);
+}
