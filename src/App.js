@@ -23,25 +23,25 @@ function App() {
   // api from name set data state
   useEffect(() => {
     if (profileName) {
-      // axios.get(`https://api.github.com/users/${profileName}/repos`).then(
-      //   (response) => {
-      //     setData(response.data);
-      //   },
-      //   (error) => {
-      //     console.log(error);
-      //     setData();
-      //   }
-      // );
-      axios.get(`http://localhost:5000`).then(
+      axios.get(`https://api.github.com/users/${profileName}/repos`).then(
         (response) => {
           setData(response.data);
-          console.log("-", response.data);
         },
         (error) => {
-          console.log("=", error);
+          console.log(error);
           setData();
         }
       );
+      // axios.get(`http://localhost:5000`).then(
+      //   (response) => {
+      //     setData(response.data);
+      //     console.log("-", response.data);
+      //   },
+      //   (error) => {
+      //     console.log("=", error);
+      //     setData();
+      //   }
+      // );
     }
   }, [profileName]);
   useEffect(() => {
