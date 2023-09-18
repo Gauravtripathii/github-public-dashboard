@@ -21,7 +21,7 @@ function Dashboard({ data, handleColorChange }) {
                 <div className="profile-name">{repo.owner.login}/</div>
                 <div className="repo-name">{repo.name}</div>
                 <footer>
-                  <a href={repo.html_url} target="_blank">GitHub</a>
+                  <a href={repo.html_url} target="_blank" rel="noreferrer">GitHub</a>
                 </footer>
               </div>
             ))
