@@ -50,7 +50,7 @@ function App() {
 
   const appRef = useRef();
   const handleColorChange = (n) => {
-    if (n%2==0) {
+    if (n%2===0) {
       appRef.current.style.background = "var(--bg-dark)";
       appRef.current.style.color = "var(--color-dark)";
     }

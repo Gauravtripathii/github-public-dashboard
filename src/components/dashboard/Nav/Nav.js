@@ -34,7 +34,7 @@ function Nav({ avatar, handleColorChange }) {
   const navRef = useRef();
   const navSpanRef = useRef();
   useEffect(() => {
-    if (themeBtnClick % 2 == 0) {
+    if (themeBtnClick % 2 === 0) {
       themeBtnRef.current.style.color = "var(--color-dark)";
       navRef.current.style.background = "var(--bg-dark2)";
       navSpanRef.current.style.color = "var(--color-dark)";
@@ -63,7 +63,7 @@ function Nav({ avatar, handleColorChange }) {
         className="theme-btn material-symbols-outlined"
         onClick={() => setThemeBtnClick(themeBtnClick + 1)}
       >
-        {themeBtnClick % 2 == 0 ? "light_mode" : "dark_mode"}
+        {themeBtnClick % 2 === 0 ? "light_mode" : "dark_mode"}
       </span>
     </div>
   );
