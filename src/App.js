@@ -1,6 +1,6 @@
 import "./App.css";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 // app components
 import Search from "./components/search";
@@ -48,16 +48,28 @@ function App() {
     console.log(data);
   }, [data]);
 
+  const appRef = useRef();
+  const handleColorChange = (n) => {
+    if (n%2==0) {
+      appRef.current.style.background = "var(--bg-dark)";
+      appRef.current.style.color = "var(--color-dark)";
+    }
+    else {
+      appRef.current.style.background = "var(--bg-light)";
+      appRef.current.style.color = "var(--color-light)";
+    }
+  }
+
   // JSX
   return (
     <Router>
-      <div className="app">
+      <div className="app" ref={appRef}>
         <Routes>
           <Route path="/" element={<Search callback={searchCallback} />} />
           {data ? (
-            <Route path="/dashboard" element={<Dashboard data={data} />} />
+            <Route path="/dashboard" element={<Dashboard data={data} handleColorChange={handleColorChange} />} />
           ) : (
-            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/dashboard" element={<Dashboard handleColorChange={handleColorChange} />} />
           )}
         </Routes>
       </div>
